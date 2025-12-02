@@ -7,6 +7,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <time.h>
 #include "utils.h"      // For clear_screen, wait_for_input (I always double-check this header)
 #include "data_input.h" // For data_input_menu — moved here early on so main.c stays readable
 #include "stats.h"      // For statistical_analysis_menu (and a few other bits I haven't cleaned up yet)
@@ -14,6 +17,11 @@
 #define MAX_VARIABLES 10
 extern Dataset datasets[MAX_VARIABLES];  // Global datasets from data_input.h — yeah, globals aren't ideal but fine for now
 extern int dataset_count;                // Tracks how many datasets we currently have (note: might later store metadata too)
+
+void display_main_menu(void);
+void simple_visualization(void);  // Stub for viz menu
+void ml_basics_info(void);        // Stub for ML menu
+void export_summary(void);        // From stats.h
 
 int main() {
     int choice;
@@ -100,3 +108,26 @@ void display_main_menu() {
     
 }
 
+// Stub implementations (integrate full from original code/stats.c)
+void simple_visualization() {
+    if (dataset_count == 0) {
+        printf("\nNo datasets for visualization! Add data first.\n");
+        wait_for_input();
+        return;
+    }
+    printf("\n========== DATA VISUALIZATION ==========\n");
+    // Call histogram function from stats.h (implement if not already)
+    // For now: Placeholder - expand with ASCII histogram code from original
+    printf("Visualization: ASCII Histogram (stub - see stats.c for full).\n");
+    wait_for_input();
+}
+
+void ml_basics_info() {
+    printf("\n======== MACHINE LEARNING BASICS ========\n");
+    printf("This section demonstrates basic ML concepts:\n");
+    printf("1. DATA PREPROCESSING: Cleaning, normalization.\n");
+    printf("2. DESCRIPTIVE ANALYTICS: Stats summaries.\n");
+    printf("3. PREDICTIVE MODELING: Regression (see analysis menu).\n");
+    printf("Note: Foundations in C; advanced needs libs like TensorFlow.\n");
+    wait_for_input();
+}
