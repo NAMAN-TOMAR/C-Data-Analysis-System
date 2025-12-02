@@ -21,7 +21,20 @@ extern int dataset_count;                // Tracks how many datasets we currentl
 void display_main_menu(void);
 void simple_visualization(void);  // Stub for viz menu
 void ml_basics_info(void);        // Stub for ML menu
-void export_summary(void);        // From stats.h
+void export_summary(void); // From stats.h
+
+void display_main_menu() {
+    clear_screen();  // Keeps the interface clean — otherwise text piles up fast
+    printf("\n=================== MAIN MENU ===================\n");
+    printf("1. Data Input & Management\n");
+    printf("2. Statistical Analysis\n");
+    printf("3. Data Visualization\n");
+    printf("4. Machine Learning Basics\n");
+    printf("5. Export Results\n");
+    printf("6. Exit\n");
+    printf("================================================\n");
+    
+}
 
 int main() {
     int choice;
